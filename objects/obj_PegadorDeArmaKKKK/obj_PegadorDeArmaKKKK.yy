@@ -1,11 +1,13 @@
 {
   "$GMObject":"",
-  "%Name":"obj_mira",
+  "%Name":"obj_PegadorDeArmaKKKK",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_mira",
+  "name":"obj_PegadorDeArmaKKKK",
   "overriddenProperties":[],
   "parent":{
     "name":"Objects",
@@ -25,13 +27,17 @@
   "physicsShape":1,
   "physicsShapePoints":[],
   "physicsStartAwake":true,
-  "properties":[],
+  "properties":[
+    {"$GMObjectProperty":"v2","%Name":"ChooseSpr","filters":[
+        "GMSprite",
+      ],"listItems":[],"multiselect":false,"name":"ChooseSpr","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"","varType":5,},
+  ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_mira",
-    "path":"sprites/spr_mira/spr_mira.yy",
+    "name":"spr_arma",
+    "path":"sprites/spr_arma/spr_arma.yy",
   },
   "spriteMaskId":null,
   "visible":true,

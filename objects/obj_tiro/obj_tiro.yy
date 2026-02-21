@@ -6,8 +6,8 @@
   "name":"obj_tiro",
   "overriddenProperties":[],
   "parent":{
-    "name":"JogoSemNomeAinda",
-    "path":"JogoSemNomeAinda.yyp",
+    "name":"Objects",
+    "path":"folders/Objects.yy",
   },
   "parentObjectId":null,
   "persistent":false,
