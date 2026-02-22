@@ -3,6 +3,8 @@
 randomise()
 arma1 = false
 
+weapon = noone;
+
 gun_equipped = noone;
 
 Infloor = true;

@@ -32,3 +32,31 @@ if (is_thrown) {
     }
 }
 }
+	
+	switch(Weapon)
+	{
+	       #region Pistola
+	        case WeaponType.Glock:
+
+			sprite_index = spr_arma2
+
+	        break;	
+		#endregion
+		
+		#region Doze
+	        // Espingarda
+	        case WeaponType.Espingarda:
+
+			sprite_index = spr_arma1
+	 
+	        break;
+		#endregion
+		
+		#region Faca
+			case WeaponType.Faca:
+
+			sprite_index = spr_arma3
+
+			break;
+		#endregion
+	}

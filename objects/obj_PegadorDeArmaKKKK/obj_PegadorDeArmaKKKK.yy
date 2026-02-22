@@ -33,10 +33,6 @@
         "GMSprite",
       ],"listItems":[],"multiselect":false,"name":"ChooseSpr","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"","varType":5,},
     {"$GMObjectProperty":"v2","%Name":"Infloor","filters":[],"listItems":[],"multiselect":false,"name":"Infloor","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"true","varType":3,},
-    {"$GMObjectProperty":"v2","%Name":"tipo","filters":[],"listItems":[
-        "\"doze\"",
-        "\"glock\"",
-      ],"multiselect":false,"name":"tipo","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"\"doze\"","varType":6,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",

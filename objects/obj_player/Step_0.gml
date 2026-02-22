@@ -43,24 +43,46 @@ if (_d or _right)
 
 #region arma
 #region atirar
-if (gun_equipped != noone && gun_equipped.Infloor == false) {
+if (mouse_check_button_pressed(mb_left)) {
 
-    if (device_mouse_check_button_pressed(0, mb_left)) {
+    var dir = point_direction(x, y, mouse_x, mouse_y);
 
-        var _atirar = instance_create_layer(
-            x,
-            y,
-            "tiro",
-            obj_tiro
-        );
+    switch (weapon) {
 
-        _atirar.direction = point_direction(x, y, mouse_x, mouse_y);
-        _atirar.image_angle = _atirar.direction - 90;
-        _atirar.speed = 20;
-        _atirar.image_xscale = 5;
-        _atirar.image_yscale = _atirar.image_xscale;
-    }
-}
+        #region Pistola
+	        case WeaponType.Glock:
+	            var b = instance_create_layer(x, y, "Tiro", obj_tiro);
+	            b.direction = dir;
+				b.image_angle = dir - 90
+	            b.speed = 14;
+				b.image_xscale = 2
+				b.image_yscale = b.image_xscale
+	        break;	
+		#endregion
+		
+		#region Doze
+	        // Espingarda
+	        case WeaponType.Espingarda:
+	            for (var i = -1; i <= 1; i++) {
+	                var b = instance_create_layer(x, y, "Tiro", obj_tiro);
+	                b.direction = dir + i * 8;
+					b.image_angle = dir - 90
+	                b.speed = 14;
+					b.image_xscale = 2
+					b.image_yscale = b.image_xscale
+	            }
+	        break;
+		#endregion
+		
+		#region Faca
+			case WeaponType.Faca:
+			    var s = instance_create_layer(x, y, "tiro", obj_slash);
+			    s.dir = dir;
+			break;
+		#endregion
+		 }
+	 }
+	
 #endregion
 
 #region pegar e arremesar
@@ -107,3 +129,15 @@ if (gun_equipped != noone) {
 
 #endregion
 #endregion
+
+if (keyboard_check_pressed(ord("1"))) {
+    weapon = WeaponType.Glock;
+}
+
+if (keyboard_check_pressed(ord("2"))) {
+    weapon = WeaponType.Espingarda;
+}
+
+if (keyboard_check_pressed(ord("3"))) {
+    weapon = WeaponType.Faca;
+}

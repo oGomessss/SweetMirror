@@ -1,3 +1,4 @@
+
 sprite_index = ChooseSpr
 
 emo = true
@@ -18,3 +19,5 @@ throw_distance = 200;
 // rotação
 rotate_speed = 17; //controla o giro
 target_rotation = 0;
+
+Weapon = choose(WeaponType.Glock, WeaponType.Espingarda, WeaponType.Faca);
