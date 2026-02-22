@@ -1,4 +1,4 @@
-
+randomise()
 sprite_index = ChooseSpr
 
 emo = true

@@ -50,94 +50,85 @@ if (mouse_check_button_pressed(mb_left)) {
     switch (weapon) {
 
         #region Pistola
-	        case WeaponType.Glock:
-	            var b = instance_create_layer(x, y, "Tiro", obj_tiro);
-	            b.direction = dir;
-				b.image_angle = dir - 90
-	            b.speed = 14;
-				b.image_xscale = 2
-				b.image_yscale = b.image_xscale
-	        break;	
-		#endregion
-		
-		#region Doze
-	        // Espingarda
-	        case WeaponType.Espingarda:
-	            for (var i = -1; i <= 1; i++) {
-	                var b = instance_create_layer(x, y, "Tiro", obj_tiro);
-	                b.direction = dir + i * 8;
-					b.image_angle = dir - 90
-	                b.speed = 14;
-					b.image_xscale = 2
-					b.image_yscale = b.image_xscale
-	            }
-	        break;
-		#endregion
-		
-		#region Faca
-			case WeaponType.Faca:
-			    var s = instance_create_layer(x, y, "tiro", obj_slash);
-			    s.dir = dir;
-			break;
-		#endregion
-		 }
-	 }
-	
+        case WeaponType.Glock:
+            var b = instance_create_layer(x, y, "Tiro", obj_tiro);
+            b.direction = dir;
+            b.image_angle = dir - 90;
+            b.speed = 14;
+            b.image_xscale = 3;
+            b.image_yscale = b.image_xscale;
+        break;
+        #endregion
+
+        #region Doze
+        // Espingarda
+        case WeaponType.Espingarda:
+            for (var i = -1; i <= 1; i++) {
+                var b = instance_create_layer(x, y, "Tiro", obj_tiro);
+                b.direction = dir + i * 8;
+                b.image_angle = dir - 90;
+                b.speed = 14;
+                b.image_xscale = 3.4;
+                b.image_yscale = b.image_xscale;
+            }
+        break;
+        #endregion
+
+        #region Faca
+        case WeaponType.Faca:
+            var s = instance_create_layer(x, y, "tiro", obj_slash);
+            s.dir = dir;
+        break;
+        #endregion
+    }
+}
 #endregion
+#endregion
+
 
 #region pegar e arremesar
 if (device_mouse_check_button_pressed(0, mb_right)) {
 
-    // se tem a arma ta podendo arremesar
+    // se tem arma → arremessa
     if (gun_equipped != noone) {
 
-		var g = gun_equipped;
+        var g = gun_equipped;
+        gun_equipped = noone;
 
-		gun_equipped = noone;
+        g.Infloor = false;
+        g.is_thrown = true;
 
-		g.Infloor = false;
-		g.is_thrown = true;
+        g.throw_direction  = point_direction(x, y, mouse_x, mouse_y);
+        g.throw_travelled  = 0;
+        g.throw_distance   = 200;
 
-		g.throw_direction = point_direction(x, y, mouse_x, mouse_y);
-		g.throw_travelled = 0;    
-		g.throw_distance = 200;
+        g.target_rotation = irandom_range(45, 380);
+        g.image_angle = 0;
 
-		g.target_rotation = irandom_range(45, 380);
-		g.image_angle = 0;
-		
+        // 🔴 perdeu a arma → sem ataque
+        weapon = WeaponType.NONE;
     }
-    // se não tiver a arma ta podendo pegar
+    // se não tem arma → tenta pegar
     else {
 
         var g = instance_place(x, y, obj_PegadorDeArmaKKKK);
 
         if (g != noone && g.Infloor && !g.is_thrown) {
             gun_equipped = g;
+            weapon = g.Weapon; // 🔥 ESSENCIAL
             g.Infloor = false;
         }
     }
 }
+#endregion
 
-//ficar presa no player
+
+// =====================
+// ARMA SEGUINDO PLAYER
+// =====================
 if (gun_equipped != noone) {
-
-	gun_equipped.x = x;
-	gun_equipped.y = y + 4;
-	gun_equipped.direction = point_direction(x, y, mouse_x, mouse_y);
-	gun_equipped.image_angle = point_direction(x, y, mouse_x, mouse_y);
-}
-
-#endregion
-#endregion
-
-if (keyboard_check_pressed(ord("1"))) {
-    weapon = WeaponType.Glock;
-}
-
-if (keyboard_check_pressed(ord("2"))) {
-    weapon = WeaponType.Espingarda;
-}
-
-if (keyboard_check_pressed(ord("3"))) {
-    weapon = WeaponType.Faca;
+    gun_equipped.x = x;
+    gun_equipped.y = y + 4;
+    gun_equipped.direction = point_direction(x, y, mouse_x, mouse_y);
+    gun_equipped.image_angle = gun_equipped.direction;
 }

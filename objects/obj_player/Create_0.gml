@@ -3,8 +3,9 @@
 randomise()
 arma1 = false
 
-weapon = noone;
 
+weapon = WeaponType.NONE;
+gun_equipped = noone;
 gun_equipped = noone;
 
 Infloor = true;
