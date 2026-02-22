@@ -41,20 +41,49 @@ if (_d or _right)
 
 #endregion
 
-#region tiro
-if (arma1 = true)
-{
-	
-if (device_mouse_check_button_pressed(0, mb_left))
-{
-		_atirar = instance_create_layer(x, y, "tiro", obj_tiro)
-		_atirar.direction = point_direction(x, y, mouse_x, mouse_y)
-		_atirar.image_angle = point_direction(x, y, mouse_x, mouse_y) - 90
-		_atirar.speed = 20
-		_atirar.image_xscale = 5
-		_atirar.image_yscale = _atirar.image_xscale
+#region arma
+#region atirar
+if (gun_equipped != noone && gun_equipped.Infloor == false) {
+
+    if (device_mouse_check_button_pressed(0, mb_left)) {
+
+        var _atirar = instance_create_layer(
+            x,
+            y,
+            "tiro",
+            obj_tiro
+        );
+
+        _atirar.direction = point_direction(x, y, mouse_x, mouse_y);
+        _atirar.image_angle = _atirar.direction - 90;
+        _atirar.speed = 20;
+        _atirar.image_xscale = 5;
+        _atirar.image_yscale = _atirar.image_xscale;
+    }
+}
+#endregion
+#region pegar arma
+/// PEGAR ARMA (botão direito)
+if (device_mouse_check_button_pressed(0, mb_right)) {
+
+    // só pega se não estiver com arma
+    if (gun_equipped == noone) {
+
+        var g = instance_place(x, y, obj_PegadorDeArmaKKKK);
+		
+        if (g != noone && g.Infloor) {
+            gun_equipped = g;
+            g.Infloor = false;
+        }
+    }
 }
 
-
+/// FAZER ARMA SEGUIR O PLAYER
+if (gun_equipped != noone) {
+	gun_equipped.direction = point_direction(x, y, mouse_x, mouse_y)
+	gun_equipped.image_angle = point_direction(x, y, mouse_x, mouse_y)
+    gun_equipped.x = x;
+    gun_equipped.y = y;
 }
+#endregion
 #endregion
