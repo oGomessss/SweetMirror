@@ -16,7 +16,8 @@ var _right = keyboard_check(vk_right)
 #endregion
 
 #region fazer essa bosta funcionar kkkkj
-
+if canmove = true
+{
 if (_w or _up )
 {
 	y -= vel
@@ -36,7 +37,7 @@ if (_d or _right)
 {
 	x += vel
 }
-
+}
 #endregion
 
 #endregion
@@ -51,33 +52,54 @@ if (mouse_check_button_pressed(mb_left)) {
 
         #region Pistola
         case WeaponType.Glock:
+		if (timerT <= 0)
+		{
             var b = instance_create_layer(x, y, "Tiro", obj_tiro);
             b.direction = dir;
             b.image_angle = dir - 90;
             b.speed = 14;
             b.image_xscale = 3;
             b.image_yscale = b.image_xscale;
+			tempoT = 60
+			timerT = tempoT
+		}
+		else
+		{}
         break;
         #endregion
 
         #region Doze
         // Espingarda
         case WeaponType.Espingarda:
-            for (var i = -1; i <= 1; i++) {
+				if (timerT <= 0)
+			{
+            for (var i = -1; i <= 1; i++) 
+			{
                 var b = instance_create_layer(x, y, "Tiro", obj_tiro);
                 b.direction = dir + i * 8;
                 b.image_angle = dir - 90;
                 b.speed = 14;
                 b.image_xscale = 3.4;
                 b.image_yscale = b.image_xscale;
+				tempoT = 120
+				timerT = tempoT
+				speed = -40
+				canmove = false
+				
+			}
             }
         break;
         #endregion
 
         #region Faca
         case WeaponType.Faca:
+				if (timerT <= 0)
+			{
             var s = instance_create_layer(x, y, "tiro", obj_slash);
             s.dir = dir;
+			tempoT = 45
+			timerT = tempoT
+			}
         break;
         #endregion
     }
@@ -121,6 +143,13 @@ if (device_mouse_check_button_pressed(0, mb_right)) {
     }
 }
 #endregion
+
+timerT--
+speed = lerp(speed, 0, 0.5)
+if speed == 0
+{
+	canmove = true
+}
 
 
 // =====================

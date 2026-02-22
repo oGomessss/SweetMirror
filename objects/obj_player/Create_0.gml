@@ -3,6 +3,10 @@
 randomise()
 arma1 = false
 
+timerT = 0
+tempoT = 0
+
+canmove = true
 
 weapon = WeaponType.NONE;
 gun_equipped = noone;
@@ -10,7 +14,7 @@ gun_equipped = noone;
 
 Infloor = true;
 
-vel = 10
+vel = 8
 
 Infloor = true;
 is_thrown = false;
