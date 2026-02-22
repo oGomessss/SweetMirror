@@ -62,28 +62,48 @@ if (gun_equipped != noone && gun_equipped.Infloor == false) {
     }
 }
 #endregion
-#region pegar arma
-/// PEGAR ARMA (botão direito)
+
+#region pegar e arremesar
 if (device_mouse_check_button_pressed(0, mb_right)) {
 
-    // só pega se não estiver com arma
-    if (gun_equipped == noone) {
+    // se tem a arma ta podendo arremesar
+    if (gun_equipped != noone) {
+
+		var g = gun_equipped;
+
+		gun_equipped = noone;
+
+		g.Infloor = false;
+		g.is_thrown = true;
+
+		g.throw_direction = point_direction(x, y, mouse_x, mouse_y);
+		g.throw_travelled = 0;    
+		g.throw_distance = 200;
+
+		g.target_rotation = irandom_range(45, 380);
+		g.image_angle = 0;
+		
+    }
+    // se não tiver a arma ta podendo pegar
+    else {
 
         var g = instance_place(x, y, obj_PegadorDeArmaKKKK);
-		
-        if (g != noone && g.Infloor) {
+
+        if (g != noone && g.Infloor && !g.is_thrown) {
             gun_equipped = g;
             g.Infloor = false;
         }
     }
 }
 
-/// FAZER ARMA SEGUIR O PLAYER
+//ficar presa no player
 if (gun_equipped != noone) {
-	gun_equipped.direction = point_direction(x, y, mouse_x, mouse_y)
-	gun_equipped.image_angle = point_direction(x, y, mouse_x, mouse_y)
-    gun_equipped.x = x;
-    gun_equipped.y = y;
+
+	gun_equipped.x = x;
+	gun_equipped.y = y + 4;
+	gun_equipped.direction = point_direction(x, y, mouse_x, mouse_y);
+	gun_equipped.image_angle = point_direction(x, y, mouse_x, mouse_y);
 }
+
 #endregion
 #endregion
