@@ -13,5 +13,5 @@ x += lengthdir_x(offset, dir);
 y += lengthdir_y(offset, dir);
 
 // escala
-image_xscale = 4;
+image_xscale = 1.6;
 image_yscale = image_xscale;

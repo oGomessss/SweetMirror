@@ -18,25 +18,11 @@ var _right = keyboard_check(vk_right)
 #region fazer essa bosta funcionar kkkkj
 if canmove = true
 {
-if (_w or _up )
-{
-	y -= vel
-}
+velv = (_s - _w) * velv_max
+velh = (_d - _a) * velh_max
 
-if (_s or _down)
-{
-	y += vel
-}
-
-if (_a or _left)
-{
-	x -= vel
-}
-
-if (_d or _right)
-{
-	x += vel
-}
+x += velh
+y += velv
 }
 #endregion
 
@@ -58,7 +44,7 @@ if (mouse_check_button_pressed(mb_left)) {
             b.direction = dir;
             b.image_angle = dir - 90;
             b.speed = 14;
-            b.image_xscale = 3;
+            b.image_xscale = 1;
             b.image_yscale = b.image_xscale;
 			tempoT = 60
 			timerT = tempoT
@@ -79,7 +65,7 @@ if (mouse_check_button_pressed(mb_left)) {
                 b.direction = dir + i * 8;
                 b.image_angle = dir - 90;
                 b.speed = 14;
-                b.image_xscale = 3.4;
+                b.image_xscale = 1.4;
                 b.image_yscale = b.image_xscale;
 				tempoT = 120
 				timerT = tempoT

@@ -14,7 +14,13 @@ gun_equipped = noone;
 
 Infloor = true;
 
-vel = 8
+vel = 4
+
+velv = 0
+velh = 0
+
+velv_max = vel
+velh_max = vel
 
 Infloor = true;
 is_thrown = false;
