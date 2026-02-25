@@ -96,7 +96,7 @@ if (mouse_check_button_pressed(mb_left)) {
 #region pegar e arremesar
 if (device_mouse_check_button_pressed(0, mb_right)) {
 
-    // se tem arma → arremessa
+
     if (gun_equipped != noone) {
 
         var g = gun_equipped;
@@ -112,17 +112,17 @@ if (device_mouse_check_button_pressed(0, mb_right)) {
         g.target_rotation = irandom_range(45, 380);
         g.image_angle = 0;
 
-        // 🔴 perdeu a arma → sem ataque
+
         weapon = WeaponType.NONE;
     }
-    // se não tem arma → tenta pegar
+ 
     else {
 
         var g = instance_place(x, y, obj_PegadorDeArmaKKKK);
 
         if (g != noone && g.Infloor && !g.is_thrown) {
             gun_equipped = g;
-            weapon = g.Weapon; // 🔥 ESSENCIAL
+            weapon = g.Weapon;
             g.Infloor = false;
         }
     }
