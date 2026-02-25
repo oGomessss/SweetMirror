@@ -8,14 +8,15 @@ if (is_thrown) {
     image_angle += rotate_speed
     throw_travelled += speed;
 
-if (is_thrown) {
-
-    var move_speed = 10;
-
-    x += lengthdir_x(move_speed, throw_direction);
-    y += lengthdir_y(move_speed, throw_direction);
-
-    throw_travelled += move_speed;
+if (is_thrown)
+{
+	if CanChangeVel = true
+	{
+		speed = random_range(18, 22);
+		CanChangeVel = false
+	}
+    // desaceleração suave
+    speed = lerp(speed, 0, 0.1);
 
     // rotação até o alvo
     if (image_angle < target_rotation) {
@@ -25,10 +26,13 @@ if (is_thrown) {
         }
     }
 
-    // só para quando REALMENTE chegar a 200px
-    if (throw_travelled >= throw_distance) {
+    // quando a velocidade ficar muito pequena, para de vez
+    if (abs(speed) < 0.1)
+    {
+        speed = 0;
         is_thrown = false;
         Infloor = true;
+		CanChangeVel = true
     }
 }
 }
@@ -60,3 +64,4 @@ if (is_thrown) {
 			break;
 		#endregion
 	}
+	

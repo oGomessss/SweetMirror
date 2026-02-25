@@ -36,6 +36,7 @@
   "name":"JogoSemNomeAinda",
   "resources":[
     {"id":{"name":"obj_barreira","path":"objects/obj_barreira/obj_barreira.yy",},},
+    {"id":{"name":"obj_inimigo","path":"objects/obj_inimigo/obj_inimigo.yy",},},
     {"id":{"name":"obj_mira","path":"objects/obj_mira/obj_mira.yy",},},
     {"id":{"name":"obj_PegadorDeArmaKKKK","path":"objects/obj_PegadorDeArmaKKKK/obj_PegadorDeArmaKKKK.yy",},},
     {"id":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},},
@@ -46,6 +47,7 @@
     {"id":{"name":"spr_arma1","path":"sprites/spr_arma1/spr_arma1.yy",},},
     {"id":{"name":"spr_arma2","path":"sprites/spr_arma2/spr_arma2.yy",},},
     {"id":{"name":"spr_arma3","path":"sprites/spr_arma3/spr_arma3.yy",},},
+    {"id":{"name":"spr_inimigo","path":"sprites/spr_inimigo/spr_inimigo.yy",},},
     {"id":{"name":"spr_mira","path":"sprites/spr_mira/spr_mira.yy",},},
     {"id":{"name":"spr_player","path":"sprites/spr_player/spr_player.yy",},},
     {"id":{"name":"spr_slash","path":"sprites/spr_slash/spr_slash.yy",},},

@@ -130,6 +130,7 @@ if (device_mouse_check_button_pressed(0, mb_right)) {
 
 
 timerT--
+direction = point_direction(x, y, mouse_x, mouse_y);
 speed = lerp(speed, 0, 0.5)
 if speed == 0
 {

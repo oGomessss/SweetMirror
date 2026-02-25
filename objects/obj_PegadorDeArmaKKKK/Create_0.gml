@@ -16,6 +16,8 @@ throw_direction = 0;
 throw_travelled = 0;
 throw_distance = 200;
 
+CanChangeVel = true
+
 // rotação
 rotate_speed = 17; //controla o giro
 target_rotation = 0;
