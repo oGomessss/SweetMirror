@@ -21,8 +21,7 @@ if canmove = true
 velv = (_s - _w) * velv_max
 velh = (_d - _a) * velh_max
 
-x += velh
-y += velv
+
 }
 #endregion
 
@@ -128,7 +127,7 @@ if (device_mouse_check_button_pressed(0, mb_right)) {
         }
     }
 }
-#endregion
+
 
 timerT--
 speed = lerp(speed, 0, 0.5)
@@ -147,3 +146,28 @@ if (gun_equipped != noone) {
     gun_equipped.direction = point_direction(x, y, mouse_x, mouse_y);
     gun_equipped.image_angle = gun_equipped.direction;
 }
+	
+#endregion
+	
+	
+	if (place_meeting(x + velh, y, obj_barreira))
+	{
+		var _velh = sign(velh)
+		while(!place_meeting(x + _velh, y, obj_barreira))
+		{
+			x += _velh
+		}
+		
+		velh = 0
+	}
+	
+		if (place_meeting(x, y + velv, obj_barreira))
+	{
+		var _velv = sign(velv)
+		while(!place_meeting(x, y + _velv, obj_barreira))
+		{
+			y += _velv
+		}
+		
+		velv = 0
+	}

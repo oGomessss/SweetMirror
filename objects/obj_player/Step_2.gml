@@ -1,6 +1,5 @@
 /// @description Inserir descrição aqui
 // Você pode escrever seu código neste editor
-x = mouse_x
-y = mouse_y
 
-image_angle += 0.05
+x += velh
+y += velv
