@@ -7,11 +7,11 @@
 image_angle = dir + 270;
 
 // offset do slash pra frente
-var offset = 80;
+var offset = 15;
 
 x += lengthdir_x(offset, dir);
 y += lengthdir_y(offset, dir);
 
 // escala
-image_xscale = 1.6;
+image_xscale = 1.3;
 image_yscale = image_xscale;
