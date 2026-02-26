@@ -13,9 +13,18 @@ if canmove = false
 	speed = 0
 }
 
-
 if morreu = true
 {
 speed = 0
+global.mortos += 1
+}
+
+timerD--
+if timerD <= 0
+{
+	dir = random_range(0, 360) - dir
+	tempoD = choose(60, 120, 180)
+	timerD = tempoD
+	direction = dir
 }
 	

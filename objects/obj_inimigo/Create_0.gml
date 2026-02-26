@@ -8,8 +8,11 @@ morreu = false
 tiro = false
 faca = false
 
+tempoD = choose(60, 120, 180)
+timerD = tempoD
+
 dir = random_range(0, 360)
-vel = 1.3
+vel = 1
 
 canmove = true
 

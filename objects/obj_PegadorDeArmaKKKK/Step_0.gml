@@ -7,6 +7,8 @@ if (is_thrown) {
 
     image_angle += rotate_speed
     throw_travelled += speed;
+	
+	obj_player.taequipado = false
 
 if (is_thrown)
 {

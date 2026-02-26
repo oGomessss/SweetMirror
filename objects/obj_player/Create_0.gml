@@ -8,6 +8,8 @@ tempoT = 0
 
 canmove = true
 
+taequipado = false
+
 weapon = WeaponType.NONE;
 gun_equipped = noone;
 gun_equipped = noone;

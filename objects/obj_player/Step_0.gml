@@ -102,7 +102,7 @@ if (device_mouse_check_button_pressed(0, mb_right)) {
 
         g.Infloor = false;
         g.is_thrown = true;
-
+		
         g.throw_direction  = point_direction(x, y, mouse_x, mouse_y);
         g.throw_travelled  = 0;
         g.throw_distance   = 200;
@@ -126,7 +126,6 @@ if (device_mouse_check_button_pressed(0, mb_right)) {
     }
 }
 
-
 timerT--
 direction = point_direction(x, y, mouse_x, mouse_y);
 speed = lerp(speed, 0, 0.5)
@@ -140,6 +139,7 @@ if speed == 0
 // ARMA SEGUINDO PLAYER
 // =====================
 if (gun_equipped != noone) {
+	taequipado = true
     gun_equipped.x = x;
     gun_equipped.y = y + 4;
     gun_equipped.direction = point_direction(x, y, mouse_x, mouse_y);
