@@ -68,9 +68,8 @@ if (mouse_check_button_pressed(mb_left)) {
                 b.image_yscale = b.image_xscale;
 				tempoT = 120
 				timerT = tempoT
-				speed = -40
-				canmove = false
-				
+				layer_set_visible("shake", true)
+				alarm[0] = 10
 			}
             }
         break;
@@ -91,7 +90,6 @@ if (mouse_check_button_pressed(mb_left)) {
 }
 #endregion
 #endregion
-
 
 #region pegar e arremesar
 if (device_mouse_check_button_pressed(0, mb_right)) {
@@ -150,7 +148,7 @@ if (gun_equipped != noone) {
 	
 #endregion
 	
-	
+#region colision
 	if (place_meeting(x + velh, y, obj_barreira))
 	{
 		var _velh = sign(velh)
@@ -158,7 +156,6 @@ if (gun_equipped != noone) {
 		{
 			x += _velh
 		}
-		
 		velh = 0
 	}
 	
@@ -169,6 +166,8 @@ if (gun_equipped != noone) {
 		{
 			y += _velv
 		}
-		
 		velv = 0
 	}
+	
+	colide = false
+#endregion

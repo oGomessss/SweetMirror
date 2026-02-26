@@ -16,6 +16,8 @@ Infloor = true;
 
 vel = 4
 
+colide = false
+
 velv = 0
 velh = 0
 

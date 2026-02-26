@@ -7,7 +7,7 @@
 image_angle = dir + 270;
 
 // offset do slash pra frente
-var offset = 15;
+var offset = 25;
 
 x += lengthdir_x(offset, dir);
 y += lengthdir_y(offset, dir);
