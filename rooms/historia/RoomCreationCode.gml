@@ -1,0 +1,1 @@
+audio_play_sound(musica_historia, 1, 1)

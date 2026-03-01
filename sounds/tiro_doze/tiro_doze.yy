@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"tiro_doze",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":0,
+  "compressionQuality":4,
+  "conversionMode":0,
+  "duration":3.9444897,
+  "exportDir":"",
+  "name":"tiro_doze",
+  "parent":{
+    "name":"Sounds",
+    "path":"folders/Sounds.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"tiro_doze.mp3",
+  "volume":0.09,
+}

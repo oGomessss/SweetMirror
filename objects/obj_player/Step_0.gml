@@ -55,6 +55,7 @@ if (mouse_check_button_pressed(mb_left)) {
             b.image_yscale = b.image_xscale;
 			tempoT = 60
 			timerT = tempoT
+			audio_play_sound(tiro_glock, 1, 0)
 		}
 		else
 		{}
@@ -78,6 +79,7 @@ if (mouse_check_button_pressed(mb_left)) {
 				timerT = tempoT
 				layer_set_visible("shake", true)
 				alarm[0] = 10
+				audio_play_sound(tiro_doze, 1, 0)
 			}
             }
         break;
@@ -91,6 +93,7 @@ if (mouse_check_button_pressed(mb_left)) {
             s.dir = dir;
 			tempoT = 45
 			timerT = tempoT
+			audio_play_sound(facada, 1, 0)
 			}
         break;
         #endregion
