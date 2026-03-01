@@ -44,4 +44,6 @@ orig_y = sprite_get_yoffset(sprite_index);
 	instance_deactivate_layer("inimigo2")
 	instance_activate_layer("inimigo")
 	
+criou = false
+	
 alarm[10] = 30

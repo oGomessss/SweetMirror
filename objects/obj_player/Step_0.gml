@@ -21,6 +21,14 @@ if canmove = true
 velv = (_s - _w) * velv_max
 velh = (_d - _a) * velh_max
 
+if velh > 0 or velv > 0 or velv < 0 or velh < 0
+{
+	sprite_index = spr_playerWalk
+}
+else
+{
+	sprite_index = spr_player
+}
 
 }
 #endregion
@@ -188,7 +196,16 @@ if (gun_equipped != noone) {
 if morto = true
 {
 	canmove = false
-	image_index = 1
+    layer_set_visible("player", false)
+	if criou = false
+	{
+	layer_sprite_create("playermorto", x, y, spr_playerdie)
+	criou = true
+	}
+    image_index = 1
+    image_speed = 14
+	
+	alarm[3] = 15
 }
 
 #endregion
@@ -202,10 +219,14 @@ if morto = true
 	instance_deactivate_layer("barreira2");
 	layer_set_visible("tiles2", false)
 	layer_set_visible("tile", true)
+	layer_set_visible("espelho", false)
+	layer_set_visible("deco2", false)
+	layer_set_visible("deco", true)
 													instance_activate_layer("arma")
 													layer_set_visible("arma", true)
 													instance_activate_layer("porta")
 	instance_deactivate_layer("inimigo2")
+	instance_deactivate_layer("reflexo")
 	instance_deactivate_layer("porta2")
 	instance_deactivate_layer("arma2")
 													instance_activate_layer("inimigo")
@@ -216,9 +237,13 @@ if morto = true
 	instance_activate_layer("barreira2");
 	layer_set_visible("tiles2", true)
 	layer_set_visible("tile", false)
+	layer_set_visible("espelho", true)
+	layer_set_visible("deco2", true)
+	layer_set_visible("deco", false)
 													instance_deactivate_layer("arma")
 													instance_deactivate_layer("porta")
 	instance_activate_layer("inimigo2")
+	instance_activate_layer("reflexo")
 	instance_activate_layer("porta2")
 	instance_activate_layer("arma2")
 													instance_deactivate_layer("inimigo")
