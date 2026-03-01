@@ -106,7 +106,12 @@ if (device_mouse_check_button_pressed(0, mb_right)) {
         g.throw_direction  = point_direction(x, y, mouse_x, mouse_y);
         g.throw_travelled  = 0;
         g.throw_distance   = 200;
-
+		if global.level = 1
+		layer_add_instance("arma", g)
+		
+		if global.level = 2
+		layer_add_instance("arma2", g)
+		
         g.target_rotation = irandom_range(45, 380);
         g.image_angle = 0;
 
@@ -117,12 +122,17 @@ if (device_mouse_check_button_pressed(0, mb_right)) {
     else {
 
         var g = instance_place(x, y, obj_PegadorDeArmaKKKK);
+		//var npc = obj_inimigo.armanpc
 
-        if (g != noone && g.Infloor && !g.is_thrown) {
+        if (g != noone && g.Infloor && !g.is_thrown && obj_inimigo.armanpc = false) {
             gun_equipped = g;
             weapon = g.Weapon;
             g.Infloor = false;
-        }
+			layer_add_instance("arma_player", g)
+        } else if obj_inimigo.armanpc = true
+		{
+			// PORRA NENHUMA
+		}
     }
 }
 
@@ -170,4 +180,49 @@ if (gun_equipped != noone) {
 	}
 	
 	colide = false
+#endregion
+
+
+#region morte
+
+if morto = true
+{
+	canmove = false
+	image_index = 1
+}
+
+#endregion
+
+
+#region camadas
+
+	if global.level = 1
+	{
+													instance_activate_layer("barreira");
+	instance_deactivate_layer("barreira2");
+	layer_set_visible("tiles2", false)
+	layer_set_visible("tile", true)
+													instance_activate_layer("arma")
+													layer_set_visible("arma", true)
+													instance_activate_layer("porta")
+	instance_deactivate_layer("inimigo2")
+	instance_deactivate_layer("porta2")
+	instance_deactivate_layer("arma2")
+													instance_activate_layer("inimigo")
+	}
+	else
+	{
+													instance_deactivate_layer("barreira");
+	instance_activate_layer("barreira2");
+	layer_set_visible("tiles2", true)
+	layer_set_visible("tile", false)
+													instance_deactivate_layer("arma")
+													instance_deactivate_layer("porta")
+	instance_activate_layer("inimigo2")
+	instance_activate_layer("porta2")
+	instance_activate_layer("arma2")
+													instance_deactivate_layer("inimigo")
+	}
+
+
 #endregion

@@ -14,6 +14,8 @@ weapon = WeaponType.NONE;
 gun_equipped = noone;
 gun_equipped = noone;
 
+morto = false
+
 Infloor = true;
 
 vel = 4
@@ -32,3 +34,14 @@ is_thrown = false;
 // salva origem original
 orig_x = sprite_get_xoffset(sprite_index);
 orig_y = sprite_get_yoffset(sprite_index);
+
+
+	instance_activate_layer("barreira");
+	instance_deactivate_layer("barreira2");
+	instance_activate_layer("tile")
+	instance_deactivate_layer("tiles2")
+	instance_activate_layer("arma")
+	instance_deactivate_layer("inimigo2")
+	instance_activate_layer("inimigo")
+	
+alarm[10] = 30

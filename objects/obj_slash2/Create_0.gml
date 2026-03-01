@@ -1,0 +1,20 @@
+/// @description Inserir descrição aqui
+// Você pode escrever seu código neste editor
+
+
+image_speed = 23
+
+    var dir = point_direction(x, y, obj_player.x, obj_player.y);
+
+// direção do ataque
+image_angle = dir + 270;
+
+// offset do slash pra frente
+var offset = 25;
+
+x += lengthdir_x(offset, dir);
+y += lengthdir_y(offset, dir);
+
+// escala
+image_xscale = 1.3;
+image_yscale = image_xscale;

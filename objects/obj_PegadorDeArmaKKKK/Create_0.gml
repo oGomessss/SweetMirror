@@ -1,6 +1,8 @@
 randomise()
 sprite_index = ChooseSpr
 
+obj_inimigo.armanpc = false
+
 emo = true
 wiggle_time = 0;
 wiggle_speed = random_range(0.08, 0.1);
