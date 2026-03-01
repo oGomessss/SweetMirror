@@ -6,6 +6,9 @@ arma1 = false
 timerT = 0
 tempoT = 0
 
+global.level = 1
+global.mortos = 0
+
 canmove = true
 
 taequipado = false
@@ -47,3 +50,15 @@ orig_y = sprite_get_yoffset(sprite_index);
 criou = false
 	
 alarm[10] = 30
+
+
+if !global.equipado
+{
+global.level = 1
+}
+
+if global.equipado
+{
+	global.level = 2
+	global.mortos = 10
+}

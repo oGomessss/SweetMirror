@@ -3,3 +3,4 @@
 global.mortos = 0
 global.level = 1
 
+global.equipado = false

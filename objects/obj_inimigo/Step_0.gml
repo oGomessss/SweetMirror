@@ -21,6 +21,14 @@ if morreu = true
 speed = 0
 global.mortos += 1
 armanpc = false
+sprite_index = spr_inimigoMorto
+if layer = layer_get_id("inimigo")
+lay = "sangue"
+if layer = layer_get_id("inimigo2")
+lay = "sangue2"
+
+instance_create_layer(x, y, lay, obj_sangue)
+
 }
 
 timerD--

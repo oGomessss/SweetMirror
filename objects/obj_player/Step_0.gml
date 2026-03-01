@@ -196,16 +196,25 @@ if (gun_equipped != noone) {
 if morto = true
 {
 	canmove = false
-    layer_set_visible("player", false)
+
 	if criou = false
 	{
-	layer_sprite_create("playermorto", x, y, spr_playerdie)
+	sprite_index = spr_playerdie
 	criou = true
+	if image_index >= image_number - 1
+	{
+			    layer_set_visible("player", false)
 	}
-    image_index = 1
-    image_speed = 14
+
+	} 
 	
-	alarm[3] = 15
+	layer_sequence_create("txt", x, y, texto2)
+
+	
+	if keyboard_check(vk_enter)
+	{
+		room_restart()
+	}
 }
 
 #endregion
