@@ -4,5 +4,5 @@
 if obj_player.morto = false
 {
 obj_player.morto = true
-
+global.equipado = false
 }

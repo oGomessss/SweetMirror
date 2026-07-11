@@ -21,7 +21,7 @@ morto = false
 
 Infloor = true;
 
-vel = 4
+vel = 3
 
 colide = false
 

@@ -3,6 +3,8 @@
 
 randomise()
 
+_1 = false
+
 descetiro = false
 
 distancia = 90
@@ -47,7 +49,7 @@ direction = dir
 speed = vel
 
 tempoT = 60
-timerT = 100
+timerT = 30
 
 cooldown = true
 

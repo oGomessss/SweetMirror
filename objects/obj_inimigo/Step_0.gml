@@ -52,17 +52,25 @@ if (_dist < distancia)
     if (!collision_line(x, y, obj_player.x, obj_player.y, obj_barreira, false, true) )
     {
         direction = point_direction(x, y, obj_player.x, obj_player.y);
-		
-		alarm[1] = 10		
+		if _1 = false
+		{
+			alarm[1] = 10		
+			_1 = true
+		}
 		descetiro = true
 		
 		if !morreu
 		_arma.image_angle = point_direction(x, y, obj_player.x, obj_player.y)
+		tempoT = 120
 		
 		if cooldown = false
 	{
 		if morreu = false
 	{
+		timerT--
+		
+		var _dir = random_range(-30, 30)
+		
 		if timerT <= 0
 		{
 			    switch (Weapon) 
@@ -72,9 +80,9 @@ if (_dist < distancia)
 				if (timerT <= 0 && !cooldown)
 				{
 		            var b = instance_create_layer(x, y, "Tiro", obj_tiroinimigo);
-		            b.direction = rot;
-		            b.image_angle = rot - 90;
-		            b.speed = 14;
+		            b.direction = rot + _dir;
+		            b.image_angle = rot - 90 + _dir;
+		            b.speed = 8;
 		            b.image_xscale = 1;
 		            b.image_yscale = b.image_xscale;
 					if cooldown = false
@@ -96,9 +104,9 @@ if (_dist < distancia)
 		            for (var i = -1; i <= 1; i++) 
 					{
 		                var b = instance_create_layer(x, y, "Tiro", obj_tiroinimigo);
-		                b.direction = rot + i * 8;
-		                b.image_angle = rot - 90;
-		                b.speed = 14;
+		                b.direction = rot + i * 8 + _dir;
+		                b.image_angle = rot - 90 + _dir;
+		                b.speed = 8;
 		                b.image_xscale = 1.4;
 		                b.image_yscale = b.image_xscale;
 						if cooldown = false
@@ -134,7 +142,7 @@ if (_dist < distancia)
 }
 
 
-timerT--
+
 
 if !morreu
 {
@@ -142,3 +150,6 @@ _arma.x = x
 _arma.y = y
 }
 
+
+show_debug_message(timerT)
+show_debug_message(_1)

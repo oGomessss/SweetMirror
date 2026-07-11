@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"ogomes_Events5",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"ogomes_Events5",
+  "parent":{
+    "name":"JogoSemNomeAinda",
+    "path":"JogoSemNomeAinda.yyp",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
